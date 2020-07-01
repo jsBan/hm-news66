@@ -1,7 +1,9 @@
 <template>
-  <div id="app"></div>
+  <div>Login组件</div>
 </template>
+
 <script>
 export default {}
 </script>
-<style lang="less"></style>
+
+<style></style>
