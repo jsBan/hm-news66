@@ -1,12 +1,20 @@
 import Vue from 'vue'
 import App from './App.vue'
-import 'amfe-flexible'
+import './styles/common.less'
+import './styles/iconfont.less'
+import router from './router'
+import hmheader from './components/hm-header.vue'
+import hmlogo from './components/hm-logo.vue'
+import { Button, Field, Form, Toast } from 'vant'
 
-import { Button, Search } from 'vant'
+Vue.component('hm-header', hmheader)
+Vue.component('hm-logo', hmlogo)
 Vue.use(Button)
-
-Vue.use(Search)
+Vue.use(Field)
+Vue.use(Form)
+Vue.use(Toast)
 Vue.config.productionTip = false
 new Vue({
+  router,
   render: h => h(App)
 }).$mount('#app')
