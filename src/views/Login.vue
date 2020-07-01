@@ -16,19 +16,18 @@
         :rules="rules.password"
       />
       <div style="margin: 16px;">
-        <van-button round block type="info" native-type="submit">
-          提交
+        <van-button round block type="info" class="btn" native-type="submit">
+          登 录
         </van-button>
       </div>
     </van-form>
     <p class="link">
-      没有账号？去<router-link to="/register">注册</router-link>
+      没有账号？去 <router-link to="/register">注册</router-link>
     </p>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
 export default {
   data() {
     return {
@@ -54,9 +53,14 @@ export default {
       }
     }
   },
+  created() {
+    const { username, password } = this.$route.params
+    this.username = username
+    this.password = password
+  },
   methods: {
     async onSubmit() {
-      const res = await axios.post('http://localhost:3000/login', {
+      const res = await this.$axios.post('/login', {
         username: this.username,
         password: this.password
       })
@@ -73,11 +77,14 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .login {
+  .btn {
+    margin-top: 40px;
+  }
   .link {
     float: right;
-    margin-right: 20px;
+    margin: 16px 20px 0 0;
     a {
       color: crimson;
     }

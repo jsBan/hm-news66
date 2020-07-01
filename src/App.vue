@@ -6,7 +6,7 @@
 <script>
 export default {}
 </script>
-<style lang="less">
+<style lang="less" scoped>
 body {
   background-color: #f5f5f5;
 }
